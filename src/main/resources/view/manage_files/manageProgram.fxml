@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="helloMain" fx:id="root" prefHeight="600.0" prefWidth="1024.0" stylesheets="@../../css/background.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ManageProgramFormController">
+   <children>
+      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="15.0" onMouseClicked="#navigateHome" prefHeight="65.0" prefWidth="123.0" styleClass="backBtn" stylesheets="@../../css/btn.css" text="Back">
+         <font>
+            <Font name="Roboto Black" size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../icons/back-blue.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="402.0" layoutY="15.0" text="Manage Program" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="162.0" layoutY="100.0" prefHeight="106.0" prefWidth="700.0" styleClass="rounded-pane" stylesheets="@../../css/background.css">
+         <children>
+            <TextField fx:id="textProgramID" prefHeight="50.0" prefWidth="348.0" promptText="Program ID" styleClass="mainTextField" stylesheets="@../../css/textField.css">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Line endX="182.0" layoutX="-175.0" layoutY="53.0" startX="868.0" stroke="#8e8e93" />
+            <Line endX="175.0" layoutX="175.0" startX="175.0" startY="43.0" stroke="#8e8e93" translateY="5.0" />
+            <TextField fx:id="textProgramName" layoutX="351.0" prefHeight="50.0" prefWidth="348.0" promptText="Program Name" styleClass="mainTextField" stylesheets="@../../css/textField.css">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="textProgramDuration" layoutY="54.0" prefHeight="50.0" prefWidth="348.0" promptText="Duration" styleClass="mainTextField" stylesheets="@../../css/textField.css">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="textProgramFee" layoutX="351.0" layoutY="54.0" prefHeight="50.0" prefWidth="348.0" promptText="Fee" styleClass="mainTextField" stylesheets="@../../css/textField.css">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Line endX="175.0" layoutX="185.0" layoutY="10.0" startX="175.0" startY="43.0" stroke="#8e8e93" translateX="-10.0" translateY="48.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="162.0" layoutY="220.0" prefHeight="38.0" prefWidth="700.0" styleClass="rounded-pane" stylesheets="@../../css/background.css">
+         <children>
+            <JFXButton fx:id="addProgramBtn" layoutX="35.0" onAction="#addProgramBtnOnAction" prefHeight="38.0" prefWidth="210.0" styleClass="orangeBtn" stylesheets="@../../css/btn.css" text="Add Program" />
+            <JFXButton fx:id="updateProgramBtn" layoutX="245.0" onAction="#updateProgramBtnOnAction" prefHeight="38.0" prefWidth="210.0" styleClass="greenBtn" stylesheets="@../../css/btn.css" text="Update Program" />
+            <JFXButton fx:id="deleteProgramBtn" layoutX="455.0" onAction="#deleteProgramBtnOnAction" prefHeight="38.0" prefWidth="210.0" styleClass="redBtn" stylesheets="@../../css/btn.css" text="Delete Program" />
+            <Line endX="175.0" endY="68.0" layoutX="70.0" layoutY="-63.0" startX="175.0" startY="95.0" stroke="#8e8e93" />
+            <Line endX="175.0" endY="68.0" layoutX="280.0" layoutY="-63.0" startX="175.0" startY="95.0" stroke="#8e8e93" />
+         </children>
+      </Pane>
+      <TableView fx:id="tblPrograms" layoutX="162.0" layoutY="285.0" prefHeight="275.0" prefWidth="700.0" styleClass="myTableView" stylesheets="@../../css/table.css">
+        <columns>
+          <TableColumn prefWidth="111.0" text="Program ID" />
+          <TableColumn prefWidth="253.0" text="Program Name" />
+            <TableColumn prefWidth="171.0" text="Duration" />
+            <TableColumn prefWidth="164.0" text="Fee(Rs)" />
+        </columns>
+      </TableView>
+      <Label fx:id="textAdminOrCoordinator" layoutX="880.0" prefHeight="65.0" styleClass="whoLabel" stylesheets="@../../css/label.css" />
+   </children>
+</AnchorPane>

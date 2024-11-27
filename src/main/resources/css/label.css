@@ -1,0 +1,6 @@
+.whoLabel{
+    -fx-text-fill: #007aff;
+    -fx-font-family: Roboto;
+    -fx-font-size: 22px;
+    -fx-cursor: hand;
+}

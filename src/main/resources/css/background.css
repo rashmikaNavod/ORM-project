@@ -1,0 +1,8 @@
+#helloMain{
+    -fx-background-color: #1c1c1e;
+}
+.rounded-pane {
+    -fx-background-color: #2c2c2e;
+    -fx-padding: 8;
+    -fx-background-radius: 10; /* Rounded corners for the background */
+}MM

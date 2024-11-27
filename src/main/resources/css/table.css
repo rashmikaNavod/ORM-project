@@ -1,0 +1,37 @@
+.myTableView{
+    -fx-background-color: #2c2c2e ;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5;
+    -fx-text-fill: #fff;
+}
+.myTableView .column-header-background{
+    -fx-background-color: #8a8a8e;
+    /*-fx-background-radius: 10;*/
+    /*-fx-background-insets: 0 0 10 0;*/
+}
+.myTableView .column-header, .myTableView .filler{
+    -fx-size: 30;
+    /*-fx-border-width: 0 0 10 0;*/
+    -fx-background-color: transparent;
+}
+.myTableView .column-header .label{
+    -fx-text-fill: #fff;
+    -fx-font-size: 15;
+}
+.table-row-cell:odd{
+    -fx-background-color: #c7c7cc;
+    /*-fx-background-insets: 0, 0 0 1 0;*/
+    /*-fx-padding: 0.0rem;*/
+}
+.table-row-cell:even{
+    -fx-background-color: #d1d1d6;
+    /*-fx-background-insets: 0, 0 0 1 0;*/
+    /*-fx-padding: 0.0rem;*/
+}
+.table-cell{
+    -fx-alignment: CENTER;
+}
+.table-row-cell:selected .table-cell {
+    -fx-font-weight: 700;
+    -fx-text-fill: #000;
+}

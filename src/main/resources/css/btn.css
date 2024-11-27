@@ -1,0 +1,63 @@
+.hellobtn{
+    -fx-background-color: transparent;
+    -fx-background-radius:12;
+    -fx-text-fill: #fff;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+}
+.signOutBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff3b30;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+.optionBtn{
+    -fx-background-color: transparent;
+    -fx-background-radius:12;
+    -fx-text-fill: #fff;
+    -fx-font-family: Roboto;
+    -fx-font-size: 22px;
+    -fx-cursor: hand;
+}
+.backBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #007aff;
+    -fx-font-family: Roboto;
+    -fx-font-size: 22px;
+    -fx-cursor: hand;
+}
+.signInBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff3b30;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+.orangeBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff9500;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+}
+.redBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff3b30;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+}
+.greenBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #34c759;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+}

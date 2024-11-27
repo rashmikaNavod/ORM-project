@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="helloMain" fx:id="root" prefHeight="600.0" prefWidth="1024.0" stylesheets="@../../css/helloPage.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ManagePaymentFormController">
+    <children>
+        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="15.0" onMouseClicked="#navigateHome" prefHeight="65.0" prefWidth="123.0" style="-fx-cursor: hand;" styleClass="backBtn" stylesheets="@../../css/loginpage.css" text="Back">
+            <font>
+                <Font name="Roboto Black" size="11.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="27.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../icons/back-blue.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <Label layoutX="402.0" layoutY="15.0" text="Manage Payment" textFill="WHITE">
+            <font>
+                <Font name="Roboto Medium" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="textAdminOrCoordinator" layoutX="880.0" prefHeight="65.0" styleClass="whoLabel" stylesheets="@../../css/dashBoard.css" />
+    </children>
+</AnchorPane>

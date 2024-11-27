@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="helloMain" fx:id="root" prefHeight="600.0" prefWidth="1024.0" stylesheets="@../css/background.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AdminLoginController">
+   <children>
+      <JFXButton alignment="BASELINE_LEFT" graphicTextGap="15.0" onMouseClicked="#navigateHome" prefHeight="65.0" prefWidth="123.0" styleClass="backBtn" stylesheets="@../css/btn.css" text="Back">
+         <font>
+            <Font name="Roboto Black" size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/back-blue.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="399.0" layoutY="85.0" text="Admin Login" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="40.0" />
+         </font>
+      </Label>
+      <Pane layoutX="293.0" layoutY="200.0" prefHeight="110.0" prefWidth="438.0" styleClass="rounded-pane" stylesheets="@../css/background.css">
+         <children>
+            <TextField fx:id="textUsername" prefHeight="50.0" prefWidth="438.0" promptText="Username" styleClass="mainTextField" stylesheets="@../css/textField.css">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="textPassword" layoutY="60.0" prefHeight="50.0" prefWidth="438.0" promptText="Password" styleClass="mainTextField" stylesheets="@../css/textField.css">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </PasswordField>
+            <Line endX="175.0" layoutX="-175.0" layoutY="55.0" startX="613.0" stroke="#8e8e93" />
+         </children>
+      </Pane>
+      <Pane layoutX="293.0" layoutY="360.0" prefHeight="50.0" prefWidth="438.0" styleClass="rounded-pane" stylesheets="@../css/background.css">
+         <children>
+            <JFXButton alignment="CENTER" graphicTextGap="15.0" onAction="#btnSignInOnAction" prefHeight="50.0" prefWidth="438.0" styleClass="signInBtn" stylesheets="@../css/btn.css" text="Sign Up">
+               <font>
+                  <Font name="Roboto Black" size="11.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
