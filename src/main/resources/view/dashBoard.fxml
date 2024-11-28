@@ -37,7 +37,7 @@
                   <Font name="Roboto Black" size="11.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnAbout" alignment="CENTER" graphicTextGap="15.0" layoutY="216.0" onMouseClicked="#navigate" prefHeight="50.0" prefWidth="438.0" styleClass="optionBtn" stylesheets="@../css/btn.css" text="About">
+            <JFXButton fx:id="btnGetStudentRegisterInProgram" alignment="CENTER" graphicTextGap="15.0" layoutY="216.0" onMouseClicked="#navigate" prefHeight="50.0" prefWidth="438.0" styleClass="optionBtn" stylesheets="@../css/btn.css" text="Get Student Register Program">
                <font>
                   <Font name="Roboto Black" size="11.0" />
                </font>
