@@ -48,7 +48,7 @@
       </Pane>
       <Pane layoutX="293.0" layoutY="360.0" prefHeight="50.0" prefWidth="438.0" styleClass="rounded-pane" stylesheets="@../css/background.css">
          <children>
-            <JFXButton alignment="CENTER" graphicTextGap="15.0" onAction="#btnLogInOnAction" prefHeight="50.0" prefWidth="438.0" styleClass="signInBtn" stylesheets="@../css/btn.css" text="Log In">
+            <JFXButton fx:id="btnLogIn" alignment="CENTER" graphicTextGap="15.0" onAction="#btnLogInOnAction" prefHeight="50.0" prefWidth="438.0" styleClass="signInBtn" stylesheets="@../css/btn.css" text="Log In">
                <font>
                   <Font name="Roboto Black" size="11.0" />
                </font>

@@ -85,6 +85,7 @@ public class AdminLoginController {
         }
     }
 
+    @FXML
     public void btnCreateOneOnAction(ActionEvent actionEvent) throws IOException {
         root.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/signUpForm.fxml"));
