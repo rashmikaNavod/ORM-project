@@ -45,4 +45,21 @@ public class UserBOImpl implements UserBO {
         return false;
     }
 
+    @Override
+    public List<UserDTO> getUserByRoleAndUsername(String role, String username) throws Exception {
+        List<User> userList = userDAO.getUserByRoleAndUsername(role,username);
+        List<UserDTO> userDTOList = new ArrayList<>();
+        for (User user : userList) {
+            UserDTO userDTO = new UserDTO(
+                    user.getUPhoneNumber(),
+                    user.getUserName(),
+                    user.getPassword(),
+                    user.getAddress(),
+                    user.getUserState()
+            );
+            userDTOList.add(userDTO);
+        }
+        return userDTOList;
+    }
+
 }

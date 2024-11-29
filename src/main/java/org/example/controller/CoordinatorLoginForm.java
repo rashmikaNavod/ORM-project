@@ -12,6 +12,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.example.bo.BOFactory;
+import org.example.bo.custom.UserBO;
+
 import java.io.IOException;
 import java.net.URL;
 
@@ -22,6 +25,8 @@ public class CoordinatorLoginForm {
     private TextField textUsername;
     @FXML
     private PasswordField textPassword;
+
+    UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     @FXML
     public void navigateHome(MouseEvent event) throws IOException {
@@ -34,6 +39,13 @@ public class CoordinatorLoginForm {
     }
     @FXML
     public void btnLogInOnAction() throws IOException {
+
+        String username = textUsername.getText();
+        String password = textPassword.getText();
+        String role = "coordinator";
+
+
+
         root.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/dashBoard.fxml"));
         Parent root = loader.load();

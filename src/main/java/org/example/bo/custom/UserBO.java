@@ -13,4 +13,5 @@ public interface UserBO extends SuperBO {
     boolean update(UserDTO dto) throws Exception;
     boolean exist(String id) throws Exception;
     boolean delete(String id) throws Exception;
+    List<UserDTO> getUserByRoleAndUsername(String role,String username) throws Exception;
 }

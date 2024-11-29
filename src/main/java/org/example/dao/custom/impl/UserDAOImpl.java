@@ -66,4 +66,15 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+    @Override
+    public List<User> getUserByRoleAndUsername(String role,String username) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<User> userList = session.createQuery(
+                "FROM User u WHERE u.userName=:username AND u.userState=:role",User.class
+        ).setParameter("username", username).setParameter("role", role).list();
+        transaction.commit();
+        session.close();
+        return userList;
+    }
 }
