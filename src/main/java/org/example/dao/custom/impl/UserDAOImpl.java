@@ -17,7 +17,12 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean add(User entity) throws Exception {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(entity);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -27,7 +32,14 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean exist(String id) throws Exception {
-        return false;
+        boolean exist = false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        exist = session.createQuery("from User where id=:id")
+        .setParameter("id", id).uniqueResult()!=null;
+        transaction.commit();
+        session.close();
+        return exist;
     }
 
     @Override

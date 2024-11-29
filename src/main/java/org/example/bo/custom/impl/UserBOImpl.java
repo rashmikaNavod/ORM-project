@@ -7,6 +7,8 @@ import org.example.dao.custom.ProgramDAO;
 import org.example.dao.custom.UserDAO;
 import org.example.dto.UserDTO;
 import org.example.entity.User;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserBOImpl implements UserBO {
@@ -25,7 +27,7 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean add(UserDTO dto) throws Exception {
-        return false;
+        return userDAO.add(new User(dto.getUPhoneNumber(),dto.getUserName(),dto.getPassword(),dto.getAddress(),dto.getUserState(),new ArrayList<>()));
     }
 
     @Override
@@ -35,11 +37,12 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean exist(String id) throws Exception {
-        return false;
+        return userDAO.exist(id);
     }
 
     @Override
     public boolean delete(String id) throws Exception {
         return false;
     }
+
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -47,12 +48,18 @@
       </Pane>
       <Pane layoutX="293.0" layoutY="360.0" prefHeight="50.0" prefWidth="438.0" styleClass="rounded-pane" stylesheets="@../css/background.css">
          <children>
-            <JFXButton alignment="CENTER" graphicTextGap="15.0" onAction="#btnSignInOnAction" prefHeight="50.0" prefWidth="438.0" styleClass="signInBtn" stylesheets="@../css/btn.css" text="Sign Up">
+            <JFXButton alignment="CENTER" graphicTextGap="15.0" onAction="#btnLogInOnAction" prefHeight="50.0" prefWidth="438.0" styleClass="signInBtn" stylesheets="@../css/btn.css" text="Log In">
                <font>
                   <Font name="Roboto Black" size="11.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
+      <Label layoutX="372.0" layoutY="420.0" text="Don't have an account ?" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="572.0" layoutY="416.0" onAction="#btnCreateOneOnAction" styleClass="signUpBtn" stylesheets="@../css/btn.css" text="Create one" />
    </children>
 </AnchorPane>

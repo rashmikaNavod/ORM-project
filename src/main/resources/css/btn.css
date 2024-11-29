@@ -61,3 +61,10 @@
     -fx-background-radius: 12px;
     -fx-cursor: hand;
 }
+.signUpBtn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #007aff;
+    -fx-font-family: Roboto;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+}

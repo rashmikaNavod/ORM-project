@@ -37,7 +37,7 @@ public class AdminLoginController {
     }
 
     @FXML
-    public void btnSignInOnAction() throws IOException {
+    public void btnLogInOnAction() throws IOException {
         root.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/dashBoard.fxml"));
         Parent root = loader.load();
@@ -52,5 +52,19 @@ public class AdminLoginController {
         tt.setToX(0);
         tt.play();
 
+    }
+
+    public void btnCreateOneOnAction(ActionEvent actionEvent) throws IOException {
+        root.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/signUpForm.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        stage.setScene(scene);
+
+        TranslateTransition tt = new TranslateTransition(Duration.millis(350), scene.getRoot());
+        tt.setFromX(-scene.getWidth());
+        tt.setToX(0);
+        tt.play();
     }
 }
