@@ -63,8 +63,10 @@ public class AdminLoginController {
         String role = "admin";
 
         try {
+
             List<UserDTO> userList = userBO.getUserByRoleAndUsername(role, username);
             boolean failMeg = true;
+
             for (UserDTO userDTO : userList) {
                 boolean isChecked = PasswordEncryptor.checkPassword(password, userDTO.getPassword());
                 if (isChecked) {
@@ -83,6 +85,7 @@ public class AdminLoginController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
     }
 
     @FXML

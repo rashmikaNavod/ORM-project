@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="helloMain" fx:id="root" prefHeight="600.0" prefWidth="1024.0" stylesheets="@../../css/helloPage.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ManagePaymentFormController">
+<AnchorPane id="helloMain" fx:id="root" prefHeight="600.0" prefWidth="1024.0" stylesheets="@../../css/background.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ManagePaymentFormController">
     <children>
-        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="15.0" onMouseClicked="#navigateHome" prefHeight="65.0" prefWidth="123.0" style="-fx-cursor: hand;" styleClass="backBtn" stylesheets="@../../css/loginpage.css" text="Back">
+        <JFXButton alignment="BASELINE_LEFT" graphicTextGap="15.0" onMouseClicked="#navigateHome" prefHeight="65.0" prefWidth="123.0" styleClass="backBtn" stylesheets="@../../css/btn.css" text="Back">
             <font>
                 <Font name="Roboto Black" size="11.0" />
             </font>
@@ -26,6 +26,6 @@
                 <Font name="Roboto Medium" size="30.0" />
             </font>
         </Label>
-        <Label fx:id="textAdminOrCoordinator" layoutX="880.0" prefHeight="65.0" styleClass="whoLabel" stylesheets="@../../css/dashBoard.css" />
+        <Label fx:id="textAdminOrCoordinator" layoutX="880.0" prefHeight="65.0" styleClass="whoLabel" stylesheets="@../../css/label.css" />
     </children>
 </AnchorPane>

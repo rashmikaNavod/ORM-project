@@ -24,7 +24,7 @@ public class DashboardFormController {
     @FXML
     private JFXButton btnManageCourse;
     @FXML
-    private JFXButton btnManageCoordinator;
+    private JFXButton btnManageUser;
     @FXML
     private JFXButton btnManagePayment;
     @FXML
@@ -40,7 +40,6 @@ public class DashboardFormController {
         if(text.equalsIgnoreCase("Coordinator")){
             btnManageStudent.setDisable(false);
             btnManageCourse.setDisable(false);
-            btnManageCoordinator.setDisable(true);
             btnManagePayment.setDisable(true);
             btnGetStudentRegisterInProgram.setDisable(false);
         }
@@ -79,6 +78,12 @@ public class DashboardFormController {
                     root = loader2.load();
                     ManageProgramFormController mpfc = loader2.getController();
                     mpfc.setTextAdminOrCoordinator(textAdminOrCoordinator.getText());
+                    break;
+                case "btnManagePayment":
+                    FXMLLoader loader4 = new FXMLLoader(this.getClass().getResource("/view/manage_files/managePayment.fxml"));
+                    root = loader4.load();
+                    ManagePaymentFormController mpfc2 = loader4.getController();
+                    mpfc2.setTextAdminOrCoordinator(textAdminOrCoordinator.getText());
                     break;
             }
 

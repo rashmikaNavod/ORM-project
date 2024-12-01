@@ -31,7 +31,14 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public boolean exist(String id) throws Exception {
-        return false;
+        boolean flag = false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        flag = session.createQuery("from Student where id=:id")
+        .setParameter("id",id).uniqueResult()!=null;
+        transaction.commit();
+        session.close();
+        return flag;
     }
 
     @Override

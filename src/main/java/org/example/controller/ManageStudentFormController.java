@@ -15,18 +15,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import jdk.swing.interop.SwingInterOpUtils;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.RegisterBO;
 import org.example.bo.custom.StudentBO;
+import org.example.custom_exception.DataNotFoundException;
 import org.example.dto.StudentDTO;
 import org.example.dto.StudentProgramDetailsDTO;
 import org.example.dto.tm.StudentTM;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -112,12 +110,11 @@ public class ManageStudentFormController {
                 sPhoneNumber.setEditable(false);
                 updateBtn.setDisable(false);
                 deleteBtn.setDisable(false);
-
+                uPhoneNumber.setEditable(false);
             }
         });
 
         loadAllStudent();
-
     }
 
     public void loadAllStudent() {
@@ -127,7 +124,9 @@ public class ManageStudentFormController {
             for(StudentDTO student : allStudent){
                 StudentTM studentTM = new StudentTM(student.getSPhoneNumber(),student.getName(),student.getDateOfBirth(),student.getAddress(),student.getRegistrationDate());
                 tblStudents.getItems().add(studentTM);
+                uPhoneNumber.setText(student.getUPhoneNumber());
             }
+
         }
         catch (Exception e){
             new Alert(Alert.AlertType.ERROR, "errror").show();
@@ -152,6 +151,10 @@ public class ManageStudentFormController {
         CA1003.setSelected(false);
         CA1004.setSelected(false);
         CA1005.setSelected(false);
+        sPhoneNumber.setEditable(true);
+        updateBtn.setDisable(true);
+        deleteBtn.setDisable(true);
+        uPhoneNumber.setEditable(true);
     }
 
     @FXML
@@ -168,15 +171,16 @@ public class ManageStudentFormController {
 
     @FXML
     public void registerOnAction(ActionEvent actionEvent) {
+
+        LinkedList<String> programCode =  new LinkedList();
+        LinkedList<Double> registerFee =  new LinkedList();
+
         String sNumber = sPhoneNumber.getText();
         String name = sName.getText();
         String birthday = dateOfBirth.getText();
         String sAddress = address.getText();
         String sRegistrationDate = registrationDate.getText();
         String uNumber = uPhoneNumber.getText();
-
-        LinkedList<String> programCode =  new LinkedList();
-        LinkedList<Double> registerFee =  new LinkedList();
 
         if (CA1001.isSelected()) {
             if (CA1001Fee.getText() == null || CA1001Fee.getText().trim().isEmpty()) {
@@ -220,38 +224,76 @@ public class ManageStudentFormController {
             }
         }
 
-        try{
 
-            ArrayList<StudentProgramDetailsDTO> courseDetailsList = new ArrayList();
+        if(!sNumber.matches( "^07\\d{8}$")){
+            new Alert(Alert.AlertType.ERROR,"Invalid Mobile number").show();
+            sPhoneNumber.requestFocus();
+            return;
+        } else if (name.length()==0) {
+            new Alert(Alert.AlertType.ERROR,"Enter Student name").show();
+            sName.requestFocus();
+            return;
+        } else if (!birthday.matches("(\\d{4})-(\\d{2})-(\\d{2})")) {
+            new Alert(Alert.AlertType.ERROR,"Invalid birthday").show();
+            dateOfBirth.requestFocus();
+            return;
+        } else if (sAddress.length()==0) {
+            new Alert(Alert.AlertType.ERROR,"Enter Student address").show();
+            address.requestFocus();
+            return;
+        } else if (!uNumber.matches( "^07\\d{8}$")) {
+            new Alert(Alert.AlertType.ERROR,"Invalid Mobile number").show();
+            uPhoneNumber.requestFocus();
+            return;
+        }else {
+            try{
 
-            StudentDTO studentDTO = new StudentDTO(sNumber,name,birthday,sAddress,sRegistrationDate,uNumber);
+                if(studentBO.exist(sNumber)){
+                    new Alert(Alert.AlertType.ERROR, sNumber + " already exists").show();
+                    sPhoneNumber.requestFocus();
+                }
 
-            for(int i = 0; i<programCode.size(); i++){
-                StudentProgramDetailsDTO studentProgramDetailsDTO
-                        = new StudentProgramDetailsDTO(0,registerFee.get(i),sNumber,programCode.get(i));
-                courseDetailsList.add(studentProgramDetailsDTO);
+                ArrayList<StudentProgramDetailsDTO> courseDetailsList = new ArrayList();
+                StudentDTO studentDTO = new StudentDTO(sNumber,name,birthday,sAddress,sRegistrationDate,uNumber);
+
+                for(int i = 0; i<programCode.size(); i++){
+                    StudentProgramDetailsDTO studentProgramDetailsDTO
+                            = new StudentProgramDetailsDTO(0,registerFee.get(i),sNumber,programCode.get(i));
+                    courseDetailsList.add(studentProgramDetailsDTO);
+                }
+
+                if(registerBO.register(studentDTO,courseDetailsList)){
+                    new Alert(Alert.AlertType.INFORMATION, "Register success").show();
+                    tblStudents.getItems().add(new StudentTM(sNumber,name,birthday,sAddress,sRegistrationDate));
+                    tblStudents.refresh();
+                    clearFields();
+                }else {
+                    new Alert(Alert.AlertType.ERROR, "Register failed").show();
+                    sPhoneNumber.requestFocus();
+                }
+
+            }catch (DataNotFoundException e){
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                uPhoneNumber.requestFocus();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
 
-            if(registerBO.register(studentDTO,courseDetailsList)){
-                new Alert(Alert.AlertType.INFORMATION, "Register success").show();
-                tblStudents.getItems().add(new StudentTM(sNumber,name,birthday,sAddress,sRegistrationDate));
-                tblStudents.refresh();
-                clearFields();
-            }else {
-                new Alert(Alert.AlertType.ERROR, "Register failed").show();
-                sPhoneNumber.requestFocus();
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-//            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-//            uPhoneNumber.requestFocus();
         }
 
     }
 
     @FXML
     public void updateOnAction(ActionEvent actionEvent) {
+        String sNumber = sPhoneNumber.getText();
+        String name = sName.getText();
+        String birthday = dateOfBirth.getText();
+        String sAddress = address.getText();
+        String sRegistrationDate = registrationDate.getText();
+        String uNumber = uPhoneNumber.getText();
+
+
+
 
     }
 

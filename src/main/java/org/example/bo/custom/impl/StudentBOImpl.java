@@ -40,7 +40,7 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean exist(String id) throws Exception {
-        return false;
+        return studentDAO.exist(id);
     }
 
     @Override

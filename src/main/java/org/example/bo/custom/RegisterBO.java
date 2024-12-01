@@ -1,6 +1,7 @@
 package org.example.bo.custom;
 
 import org.example.bo.SuperBO;
+import org.example.custom_exception.DataNotFoundException;
 import org.example.dto.ProgramDTO;
 import org.example.dto.StudentDTO;
 import org.example.dto.StudentProgramDetailsDTO;
